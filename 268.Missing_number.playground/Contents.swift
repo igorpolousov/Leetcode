@@ -48,12 +48,34 @@ func missingNumber(_ nums: [Int]) -> Int {
     return sum + nums.count
 }
 
-//missingNumber(nums)
+extension Array {
+    func sum() -> Int{
+        var sum = 0
+        for item in self {
+            sum += item as! Int
+        }
+        return sum
+    }
+}
+
+
+func missingNumber2(_ nums: [Int]) -> Int {
+    var ans = nums.sum()
+    for i in 0...nums.count  {
+        ans -= i
+        
+    }
+  
+    return ans * -1
+}
+
+
+//missingNumber2(nums1)
 
 func forMeasureTime() {
     for _ in 0...20 {
         var elapsed = ContinuousClock().measure {
-            missingNumber(nums)
+            missingNumber2(nums)
         }
         print(elapsed)
     }
