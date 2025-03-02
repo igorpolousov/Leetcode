@@ -16,6 +16,7 @@ import UIKit
  */
 
 
+// Алгоритм с присвоемнием переменных работают в разы ыстрее чем алгоритм с append ans remove
 func moveZeroes(_ nums: inout [Int]) {
     var idx = 0
     while idx < nums.count - 1 {
