@@ -213,12 +213,41 @@ func intToRoman1(_ num: Int) -> String {
     return ans
 }
 
+func intToRoman2(_ num: Int) -> String {
+    var intToRomanMap = [
+        (1000, "M"),
+        (900, "CM"),
+        (500, "D"),
+        (400, "CD"),
+        (100, "C"),
+        (90, "XC"),
+        (50, "L"),
+        (40, "XL"),
+        (10, "X"),
+        (9, "IX"),
+        (5, "V"),
+        (4, "IV"),
+        (1, "I")
+    ]
+    var result = ""
+    var num = num
+    for pair in intToRomanMap {
+        let value = num / pair.0
+        num -= value * pair.0
+        if value > 0 {
+            result.append(contentsOf: String(repeating: pair.1, count: value))
+        }
+    }
+    return result
+}
+
 
 func forMeasureTime() {
     for _ in 0...20 {
         var elapsed = ContinuousClock().measure {
-            intToRoman(1994)
+            //intToRoman(1994)
             //intToRoman1(1994)
+            intToRoman2(1994)
         }
         print(elapsed)
     }
